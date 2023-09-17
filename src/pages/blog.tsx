@@ -1,7 +1,15 @@
 import React from "react";
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 function Blog() {
-  return <h1>Hello welcom to my blog!</h1>;
+  return (
+    <Layout title="Hello welcom to my blog!">
+      <p> The most recent news from my shop. </p>
+    </Layout>
+  );
 }
 
 export default Blog;
+
+export const Head = () => <Seo title="Blog" />;

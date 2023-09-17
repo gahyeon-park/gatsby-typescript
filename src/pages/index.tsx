@@ -1,12 +1,17 @@
 import * as React from "react";
-import type { PageProps } from "gatsby";
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
-const IndexPage: React.FC<PageProps> = () => {
+export default function IndexPage() {
   return (
-    <div>
-      <h1>Welcom to DevStickers</h1>
-    </div>
+    <Layout title="Welcom to DevStickers">
+      <div></div>
+    </Layout>
   );
-};
+}
 
-export default IndexPage;
+// export function Head() {
+//   return <title>DevStickers</title>; // 브라우저 <head>에 들어감
+// }
+
+export const Head = () => <Seo title="Home" />;
