@@ -3,15 +3,24 @@ import Layout from "../components/layout";
 import Seo from "../components/seo";
 import { graphql, PageProps } from "gatsby";
 
-function Blog({ data }: PageProps<Queries.BlogTitlesQuery>) {
+function Blog({ data }: PageProps<Queries.BlogPostsQuery>) {
   console.log(data);
   
   return (
     <Layout title="Hello welcom to my blog!">
-      <ul>
-        {data.allFile.nodes.map((file, i) => <li key={i}>{file.name}</li>)}
-      </ul>
-      <p>The most recent news from my shop.</p>
+      <section>
+        {
+          data.allMdx.nodes.map((post, i) => 
+          <article key={i}>
+            <h3>{post.frontmatter?.title}</h3>
+            <h4>{post.frontmatter?.author} in: {post.frontmatter?.category}</h4>
+            <span>{post.frontmatter?.date}</span>
+            <hr />
+            <p>{post.excerpt}</p>
+          </article>
+          )
+        }
+      </section>
     </Layout>
   );
 }
@@ -19,10 +28,16 @@ function Blog({ data }: PageProps<Queries.BlogTitlesQuery>) {
 export default Blog;
 
 export const query = graphql`
-  query BlogTitles {
-    allFile {
+  query BlogPosts {
+    allMdx {
       nodes {
-        name
+        frontmatter {
+          category
+          title
+          date(formatString: "YYYY.MM.DD")
+          author
+        }
+        excerpt(pruneLength: 50)
       }
     }
   }
