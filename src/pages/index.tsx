@@ -6,7 +6,7 @@ import { StaticImage } from "gatsby-plugin-image";
 export default function IndexPage() {
   return (
     <Layout title="Welcom to DevStickers">
-      <StaticImage src="https://images.unsplash.com/photo-1625768376503-68d2495d78c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1325&q=80" alt="stickers on the wall" />
+      <StaticImage height={300} src="https://images.unsplash.com/photo-1625768376503-68d2495d78c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1325&q=80" alt="stickers on the wall" />
     </Layout>
   );
 }
