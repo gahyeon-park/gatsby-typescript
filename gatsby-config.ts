@@ -12,6 +12,9 @@ const config: GatsbyConfig = {
   graphqlTypegen: true, // → Gatsby가 우리의 쿼리를 읽고 자동으로 맞는 타입을 생성
   plugins: [
     `gatsby-plugin-mdx`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`, // Needed for dynamic images
     {
       resolve: `gatsby-source-filesystem`,
       options: {
